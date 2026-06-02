@@ -71,6 +71,7 @@ class Model: ObservableObject {
     
     private func setupPeripheralListener() {
         bluetoothService.peripheralPublisher
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] peripherals in
                 self?.peripherals = peripherals
             }
@@ -79,6 +80,7 @@ class Model: ObservableObject {
 
     private func setupConnectionListener() {
         bluetoothService.isConnectedPublisher
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] isConnected in
                 self?.isConnected = isConnected
             }
@@ -87,6 +89,7 @@ class Model: ObservableObject {
 
     private func setupBluetoothDataListener() {
         bluetoothService.bluetoothDataPublisher
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] bluetoothData in
                 guard let self else { return }
                 switch bluetoothData {

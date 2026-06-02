@@ -68,8 +68,13 @@ struct Peripheral: Identifiable, Hashable {
 }
 
 class BluetoothService: NSObject {
+    /// All CoreBluetooth callbacks and access to the mutable state below run on
+    /// this serial queue, keeping the BLE notification stream off the main
+    /// thread (which would otherwise freeze the UI and starve the camera).
+    private let queue = DispatchQueue(label: "de.mbreska.pumba.ble")
+
     private var centralManager: CBCentralManager?
-    
+
     private var peripherals: [CBPeripheral] = []
     private var peripheral: CBPeripheral? = nil {
         didSet {
@@ -92,45 +97,58 @@ class BluetoothService: NSObject {
         super.init()
         // Skip CoreBluetooth in SwiftUI previews so they don't start a live scan.
         guard ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != "1" else { return }
-        self.centralManager = CBCentralManager(delegate: self, queue: .main)
+        self.centralManager = CBCentralManager(delegate: self, queue: queue)
     }
-    
+
     private func connectPeripheral(peripheral: CBPeripheral) {
         centralManager?.connect(peripheral, options: nil)
     }
-    
+
     func connectPeripheral(peripheral: Peripheral) {
-        guard let peripheral = peripherals.first(where: { $0.identifier.uuidString == peripheral.id } ) else { return }
-        autoConnect = true
-        centralManager?.connect(peripheral, options: nil)
+        queue.async { [weak self] in
+            guard let self,
+                  let cb = self.peripherals.first(where: { $0.identifier.uuidString == peripheral.id }) else { return }
+            self.autoConnect = true
+            self.centralManager?.connect(cb, options: nil)
+        }
     }
 
     func scanForDevices() {
-        peripherals = []
-        centralManager?.scanForPeripherals(withServices: nil)
+        queue.async { [weak self] in
+            self?.peripherals = []
+            self?.centralManager?.scanForPeripherals(withServices: nil)
+        }
     }
 
     /// Drop the current connection and stop auto-reconnecting (e.g. user picked
     /// the wrong device and wants to choose again).
     func disconnect() {
-        autoConnect = false
-        if let peripheral {
-            centralManager?.cancelPeripheralConnection(peripheral)
+        queue.async { [weak self] in
+            guard let self else { return }
+            self.autoConnect = false
+            if let peripheral = self.peripheral {
+                self.centralManager?.cancelPeripheralConnection(peripheral)
+            }
         }
     }
 
     /// Re-enable auto-connect to "Pumba_Zentrale" and start scanning.
     func startAutoConnect() {
-        autoConnect = true
-        scanForDevices()
+        queue.async { [weak self] in
+            guard let self else { return }
+            self.autoConnect = true
+            self.peripherals = []
+            self.centralManager?.scanForPeripherals(withServices: nil)
+        }
     }
-    
+
     private func updateRelay(isActive: Bool, id: String) {
-        guard let characteristic = characteristics?.first(where: { charateristic in
-            return charateristic.uuid.uuidString.lowercased() == id
-        }) else { return }
-        let value = UInt8(isActive ? 1 : 0)
-        peripheral?.writeValue(Data([value]), for: characteristic, type: .withResponse)
+        queue.async { [weak self] in
+            guard let self,
+                  let characteristic = self.characteristics?.first(where: { $0.uuid.uuidString.lowercased() == id }) else { return }
+            let value = UInt8(isActive ? 1 : 0)
+            self.peripheral?.writeValue(Data([value]), for: characteristic, type: .withResponse)
+        }
     }
     
     func updateInverter(isOn: Bool) {
@@ -154,21 +172,21 @@ class BluetoothService: NSObject {
     }
     
     func updateServoSettings(servoSettings: ServoSettings) {
-        guard let characteristic = characteristics?.first(where: { charateristic in
-            return charateristic.uuid.uuidString.lowercased() == SERVO_SETTINGS_ID
-        }) else { return }
-        
-        let data = encodeStruct(servoSettings)
-        peripheral?.writeValue(data, for: characteristic, type: .withResponse)
+        queue.async { [weak self] in
+            guard let self,
+                  let characteristic = self.characteristics?.first(where: { $0.uuid.uuidString.lowercased() == SERVO_SETTINGS_ID }) else { return }
+            let data = self.encodeStruct(servoSettings)
+            self.peripheral?.writeValue(data, for: characteristic, type: .withResponse)
+        }
     }
-    
-    func updateServoSettingsCupboard(servoSettings: ServoSettingsCupboard) {
-        guard let characteristic = characteristics?.first(where: { charateristic in
-            return charateristic.uuid.uuidString.lowercased() == SERVO_SETTINGS_CUPBOARD_ID
-        }) else { return }
 
-        let data = encodeStruct(servoSettings)
-        peripheral?.writeValue(data, for: characteristic, type: .withResponse)
+    func updateServoSettingsCupboard(servoSettings: ServoSettingsCupboard) {
+        queue.async { [weak self] in
+            guard let self,
+                  let characteristic = self.characteristics?.first(where: { $0.uuid.uuidString.lowercased() == SERVO_SETTINGS_CUPBOARD_ID }) else { return }
+            let data = self.encodeStruct(servoSettings)
+            self.peripheral?.writeValue(data, for: characteristic, type: .withResponse)
+        }
     }
     
 //    func updateKitchenServoPos() {

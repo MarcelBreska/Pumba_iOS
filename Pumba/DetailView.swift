@@ -150,21 +150,37 @@ struct CameraPreviewCard: View {
 
     var body: some View {
         SectionCard("Kamera", systemImage: "video.fill") {
-            VLCPlayerView(rtspUrl: SEWAGE_CAMERA_RTSP_URL)
-                .frame(maxWidth: .infinity)
-                .frame(height: 150)
-                .background(Color.black)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                .overlay(alignment: .bottomTrailing) {
-                    Image(systemName: "arrow.up.left.and.arrow.down.right")
-                        .font(.footnote.bold())
-                        .foregroundStyle(.white)
-                        .padding(7)
-                        .background(.black.opacity(0.45), in: Circle())
-                        .padding(8)
+            ZStack {
+                RoundedRectangle(cornerRadius: 12).fill(Color.black)
+
+                // Only stream the preview while the fullscreen isn't open, so
+                // there's never more than one RTSP connection at a time.
+                if !showCamera {
+                    VLCPlayerView(rtspUrl: SEWAGE_CAMERA_RTSP_URL)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                } else {
+                    Image(systemName: "video.fill")
+                        .font(.largeTitle)
+                        .foregroundStyle(.white.opacity(0.35))
                 }
-                .contentShape(Rectangle())
-                .onTapGesture { showCamera = true }
+
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Image(systemName: "arrow.up.left.and.arrow.down.right")
+                            .font(.footnote.bold())
+                            .foregroundStyle(.white)
+                            .padding(7)
+                            .background(.black.opacity(0.45), in: Circle())
+                            .padding(8)
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity)
+            .frame(height: 150)
+            .contentShape(Rectangle())
+            .onTapGesture { showCamera = true }
         }
     }
 }

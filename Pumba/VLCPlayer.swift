@@ -7,7 +7,6 @@
 
 import SwiftUI
 import UIKit
-import MediaPlayer
 
 struct VLCPlayerView: UIViewControllerRepresentable {
     var rtspUrl: String
@@ -17,13 +16,17 @@ struct VLCPlayerView: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        // Handle updates if necessary
+        // Nothing to update; the controller owns the player for its lifetime.
     }
 }
 
 class VLCPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
-    var mediaPlayer: VLCMediaPlayer?
-    var rtspUrl: String
+    private var mediaPlayer: VLCMediaPlayer?
+    private let rtspUrl: String
+    /// Attach the drawable exactly once, after the view has a real size.
+    /// Re-assigning it on every layout pass makes VLC re-init its output and
+    /// the feed never renders.
+    private var didAttachDrawable = false
 
     init(rtspUrl: String) {
         self.rtspUrl = rtspUrl
@@ -38,55 +41,31 @@ class VLCPlayerViewController: UIViewController, VLCMediaPlayerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .black
         mediaPlayer = VLCMediaPlayer()
-        DispatchQueue.main.async {
-            self.mediaPlayer?.drawable = self.view  // Ensure drawable is set on the main thread
-        }
-//        mediaPlayer?.drawable = self.view
-        mediaPlayer?.delegate = self  // Set delegate to receive events
-
+        mediaPlayer?.delegate = self
         startStream()
-    }
-    
-    @objc func startStream() {
-        if let encodedURL = rtspUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-           let url = URL(string: encodedURL) {
-            let media = VLCMedia(url: url)
-            media.addOption(":rtsp-tcp")
-//            media.addOption(":network-caching=500")
-//            media.addOption(":no-hw-decoding")
-            media.addOption(":rtsp-reordering=0")
-
-            mediaPlayer?.media = media
-            mediaPlayer?.play()
-        } else {
-            print("Invalid RTSP URL")
-        }
-    }
-    
-    @objc func stopStream() {
-        mediaPlayer?.stop()
-    }
-
-    func mediaPlayerStateChanged(_ aNotification: Notification) {
-        if mediaPlayer?.state == .error {
-            print("Error in media player")
-        } else {
-            print("Player state changed: \(String(describing: mediaPlayer?.state))")
-        }
-    }
-
-    func mediaPlayerTimeChanged(_ aNotification: Notification) {
-        print("Player time: \(String(describing: mediaPlayer?.time))")
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        DispatchQueue.main.async {
-            self.mediaPlayer?.drawable = self.view  // Ensure drawable is set on the main thread
-        }
-//        mediaPlayer?.drawable = self.view
+        guard !didAttachDrawable, view.bounds.width > 0, view.bounds.height > 0 else { return }
+        didAttachDrawable = true
+        mediaPlayer?.drawable = view
+    }
+
+    @objc func startStream() {
+        guard let encodedURL = rtspUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+              let url = URL(string: encodedURL) else { return }
+        let media = VLCMedia(url: url)
+        media.addOption(":rtsp-tcp")
+        media.addOption(":rtsp-reordering=0")
+        mediaPlayer?.media = media
+        mediaPlayer?.play()
+    }
+
+    @objc func stopStream() {
+        mediaPlayer?.stop()
     }
 
     deinit {

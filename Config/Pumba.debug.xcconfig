@@ -1,0 +1,4 @@
+// Base build configuration for the Pumba app target (Debug).
+// Pulls in CocoaPods settings, then the gitignored Secrets.xcconfig.
+#include "../Pods/Target Support Files/Pods-Pumba/Pods-Pumba.debug.xcconfig"
+#include? "../Secrets.xcconfig"

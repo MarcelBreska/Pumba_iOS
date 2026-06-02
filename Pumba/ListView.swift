@@ -9,25 +9,28 @@ import SwiftUI
 import CoreBluetooth
 
 struct ListView: View {
-    
-    @EnvironmentObject var viewModel: BluetoothViewModel
+    @EnvironmentObject var model: Model
+    @State private var alertText = ""
+    @State private var showingAlert = false
     
     var body: some View {
         NavigationView {
-            List(viewModel.peripherals, id: \.self) { peripheral in
+            List(model.peripherals, id: \.self) { peripheral in
                 Button(action: {
-                    viewModel.connectPeripheral(peripheral)
-                    print("test")
+                    model.connectPeripheral(peripheral: peripheral)
+                    alertText = "connect \(peripheral.name)"
                 }) {
-                    Text(peripheral.name ?? "unnamed device")
+                    Text(peripheral.name)
                 }
-                
             }
+        }
+        .alert(alertText, isPresented: $showingAlert) {
+            Button("OK", role: .cancel) { }
         }
         .navigationTitle("Bluetooth")
         .toolbar {
             Button("Refresh") {
-                viewModel.scanForDevices()
+                model.scanForDevices()
             }
         }
     }

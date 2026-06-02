@@ -1,0 +1,29 @@
+name: iOS build
+
+# Manual trigger only (avoids consuming macOS minutes on every push).
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Reconstruct Secrets.xcconfig from secret
+        run: |
+          printf 'CAMERA_RTSP_AUTHORITY = %s\n' "${{ secrets.CAMERA_RTSP_AUTHORITY }}" > Secrets.xcconfig
+
+      - name: Install CocoaPods dependencies
+        run: pod install
+
+      - name: Build (simulator, no signing)
+        run: |
+          xcodebuild \
+            -workspace Pumba.xcworkspace \
+            -scheme Pumba \
+            -configuration Debug \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO \
+            build

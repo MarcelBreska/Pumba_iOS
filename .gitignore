@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+**/xcuserdata/
+
+# CocoaPods
+Pods/
+
+# Secrets (real values live here / in CI; never commit)
+Secrets.xcconfig

@@ -7,8 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30E382898BA28A6E45074630 /* Pods_Pumba_PumbaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8555696763675B4C18A47CF2 /* Pods_Pumba_PumbaUITests.framework */; };
+		B5F8DD5FB6B59E28F4343F31 /* Pods_PumbaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B50422FD933ACBFD874327C /* Pods_PumbaTests.framework */; };
+		B91F74432A4450BA00B93DDF /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91F74422A4450B900B93DDF /* ButtonView.swift */; };
+		B91F74452A44643100B93DDF /* EnergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91F74442A44643100B93DDF /* EnergyView.swift */; };
+		B91F74472A44917100B93DDF /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91F74462A44917100B93DDF /* ProgressView.swift */; };
+		B941D1002A4C7658006365BC /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941D0FF2A4C7658006365BC /* BluetoothService.swift */; };
+		B941D1032A4DCE61006365BC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941D1022A4DCE61006365BC /* Model.swift */; };
+		B9427AA22C9D45A8005B3767 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9427AA12C9D45A0005B3767 /* SettingsView.swift */; };
+		B9427AA42C9D45C2005B3767 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9427AA32C9D45BF005B3767 /* DataView.swift */; };
+		B9427AA62C9D4E20005B3767 /* ServoSettingsCupboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9427AA52C9D4E19005B3767 /* ServoSettingsCupboard.swift */; };
+		B9427AAE2CA0BB3B005B3767 /* VLCPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9427AAD2CA0BB36005B3767 /* VLCPlayer.swift */; };
+		B9427AB02CA0BB5B005B3767 /* WasteWaterCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9427AAF2CA0BB51005B3767 /* WasteWaterCameraView.swift */; };
 		B9518B3329F7FD5700F491D5 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9518B3229F7FD5700F491D5 /* ListView.swift */; };
 		B9518B3529F7FE9300F491D5 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9518B3429F7FE9300F491D5 /* DetailView.swift */; };
+		B988EB032A4EEFFC00FB1885 /* ImuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B988EB022A4EEFFC00FB1885 /* ImuData.swift */; };
+		B988EB052A4EF03000FB1885 /* WaterFlowData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B988EB042A4EF03000FB1885 /* WaterFlowData.swift */; };
+		B988EB072A4EF04C00FB1885 /* AdcData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B988EB062A4EF04C00FB1885 /* AdcData.swift */; };
+		B988EB092A4EF06500FB1885 /* VeDirectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B988EB082A4EF06500FB1885 /* VeDirectData.swift */; };
+		B988EB0B2A4EF08C00FB1885 /* AdcSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B988EB0A2A4EF08C00FB1885 /* AdcSettings.swift */; };
+		B988EB0D2A4EF0B300FB1885 /* ServoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B988EB0C2A4EF0B300FB1885 /* ServoSettings.swift */; };
+		B988EB0F2A4EF0CA00FB1885 /* FlowSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B988EB0E2A4EF0CA00FB1885 /* FlowSettings.swift */; };
+		B988EB122A51A65C00FB1885 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B988EB112A51A65C00FB1885 /* Color.swift */; };
 		B9C009CB29F7102600931FC7 /* PumbaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C009CA29F7102600931FC7 /* PumbaApp.swift */; };
 		B9C009CD29F7102600931FC7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C009CC29F7102600931FC7 /* ContentView.swift */; };
 		B9C009CF29F7102800931FC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9C009CE29F7102800931FC7 /* Assets.xcassets */; };
@@ -16,6 +36,7 @@
 		B9C009DC29F7102800931FC7 /* PumbaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C009DB29F7102800931FC7 /* PumbaTests.swift */; };
 		B9C009E629F7102800931FC7 /* PumbaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C009E529F7102800931FC7 /* PumbaUITests.swift */; };
 		B9C009E829F7102800931FC7 /* PumbaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C009E729F7102800931FC7 /* PumbaUITestsLaunchTests.swift */; };
+		C4B27B6F9414DFF8BCE72AF9 /* Pods_Pumba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BAAA255BEEE6D0EFD671DD3 /* Pods_Pumba.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +57,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4CC814EE7FB37EFA73175F94 /* Pods-Pumba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pumba.release.xcconfig"; path = "Target Support Files/Pods-Pumba/Pods-Pumba.release.xcconfig"; sourceTree = "<group>"; };
+		0A1B2C3D4E5F60718293A4B5 /* Pumba.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config/Pumba.debug.xcconfig"; sourceTree = SOURCE_ROOT; };
+		0A1B2C3D4E5F60718293A4B6 /* Pumba.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config/Pumba.release.xcconfig"; sourceTree = SOURCE_ROOT; };
+		5BAAA255BEEE6D0EFD671DD3 /* Pods_Pumba.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pumba.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B50422FD933ACBFD874327C /* Pods_PumbaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PumbaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8555696763675B4C18A47CF2 /* Pods_Pumba_PumbaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pumba_PumbaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADE536BEF221CEA77BA78209 /* Pods-Pumba-PumbaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pumba-PumbaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Pumba-PumbaUITests/Pods-Pumba-PumbaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B91F74422A4450B900B93DDF /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		B91F74442A44643100B93DDF /* EnergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyView.swift; sourceTree = "<group>"; };
+		B91F74462A44917100B93DDF /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		B941D0FF2A4C7658006365BC /* BluetoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
+		B941D1022A4DCE61006365BC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		B9427AA12C9D45A0005B3767 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B9427AA32C9D45BF005B3767 /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
+		B9427AA52C9D4E19005B3767 /* ServoSettingsCupboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServoSettingsCupboard.swift; sourceTree = "<group>"; };
+		B9427AAC2CA0BAC7005B3767 /* Pumba-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pumba-Bridging-Header.h"; sourceTree = "<group>"; };
+		B9427AAD2CA0BB36005B3767 /* VLCPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLCPlayer.swift; sourceTree = "<group>"; };
+		B9427AAF2CA0BB51005B3767 /* WasteWaterCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WasteWaterCameraView.swift; sourceTree = "<group>"; };
 		B9518B3229F7FD5700F491D5 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		B9518B3429F7FE9300F491D5 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		B988EB022A4EEFFC00FB1885 /* ImuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImuData.swift; sourceTree = "<group>"; };
+		B988EB042A4EF03000FB1885 /* WaterFlowData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFlowData.swift; sourceTree = "<group>"; };
+		B988EB062A4EF04C00FB1885 /* AdcData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdcData.swift; sourceTree = "<group>"; };
+		B988EB082A4EF06500FB1885 /* VeDirectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeDirectData.swift; sourceTree = "<group>"; };
+		B988EB0A2A4EF08C00FB1885 /* AdcSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdcSettings.swift; sourceTree = "<group>"; };
+		B988EB0C2A4EF0B300FB1885 /* ServoSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServoSettings.swift; sourceTree = "<group>"; };
+		B988EB0E2A4EF0CA00FB1885 /* FlowSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowSettings.swift; sourceTree = "<group>"; };
+		B988EB112A51A65C00FB1885 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		B9C009C729F7102600931FC7 /* Pumba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pumba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9C009CA29F7102600931FC7 /* PumbaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PumbaApp.swift; sourceTree = "<group>"; };
 		B9C009CC29F7102600931FC7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +95,10 @@
 		B9C009E129F7102800931FC7 /* PumbaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PumbaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9C009E529F7102800931FC7 /* PumbaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PumbaUITests.swift; sourceTree = "<group>"; };
 		B9C009E729F7102800931FC7 /* PumbaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PumbaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D551406D8B58BF00C39D889D /* Pods-PumbaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PumbaTests.release.xcconfig"; path = "Target Support Files/Pods-PumbaTests/Pods-PumbaTests.release.xcconfig"; sourceTree = "<group>"; };
+		E7FDEC0908E1FD5D29DD9F86 /* Pods-Pumba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pumba.debug.xcconfig"; path = "Target Support Files/Pods-Pumba/Pods-Pumba.debug.xcconfig"; sourceTree = "<group>"; };
+		E8EDD3CB678780D81B730612 /* Pods-Pumba-PumbaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pumba-PumbaUITests.release.xcconfig"; path = "Target Support Files/Pods-Pumba-PumbaUITests/Pods-Pumba-PumbaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FF64F3B4B0401E47CBBFA6BC /* Pods-PumbaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PumbaTests.debug.xcconfig"; path = "Target Support Files/Pods-PumbaTests/Pods-PumbaTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4B27B6F9414DFF8BCE72AF9 /* Pods_Pumba.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5F8DD5FB6B59E28F4343F31 /* Pods_PumbaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,12 +122,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30E382898BA28A6E45074630 /* Pods_Pumba_PumbaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B941D1012A4DCE51006365BC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B988EB012A4EEFEC00FB1885 /* BluetoothData */,
+				B941D1022A4DCE61006365BC /* Model.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B988EB012A4EEFEC00FB1885 /* BluetoothData */ = {
+			isa = PBXGroup;
+			children = (
+				B988EB022A4EEFFC00FB1885 /* ImuData.swift */,
+				B988EB042A4EF03000FB1885 /* WaterFlowData.swift */,
+				B988EB062A4EF04C00FB1885 /* AdcData.swift */,
+				B988EB082A4EF06500FB1885 /* VeDirectData.swift */,
+				B988EB0A2A4EF08C00FB1885 /* AdcSettings.swift */,
+				B988EB0C2A4EF0B300FB1885 /* ServoSettings.swift */,
+				B9427AA52C9D4E19005B3767 /* ServoSettingsCupboard.swift */,
+				B988EB0E2A4EF0CA00FB1885 /* FlowSettings.swift */,
+			);
+			path = BluetoothData;
+			sourceTree = "<group>";
+		};
+		B988EB102A51A64B00FB1885 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				B9C009CE29F7102800931FC7 /* Assets.xcassets */,
+				B988EB112A51A65C00FB1885 /* Color.swift */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		B9C009BE29F7102600931FC7 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +169,10 @@
 				B9C009DA29F7102800931FC7 /* PumbaTests */,
 				B9C009E429F7102800931FC7 /* PumbaUITests */,
 				B9C009C829F7102600931FC7 /* Products */,
+				EE826240B0FA0B13EB77308F /* Pods */,
+				D809B15CD017C59A3FFA3722 /* Frameworks */,
+				0A1B2C3D4E5F60718293A4B5 /* Pumba.debug.xcconfig */,
+				0A1B2C3D4E5F60718293A4B6 /* Pumba.release.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,12 +189,22 @@
 		B9C009C929F7102600931FC7 /* Pumba */ = {
 			isa = PBXGroup;
 			children = (
+				B9427AAC2CA0BAC7005B3767 /* Pumba-Bridging-Header.h */,
+				B9427AAD2CA0BB36005B3767 /* VLCPlayer.swift */,
+				B988EB102A51A64B00FB1885 /* Assets */,
+				B941D1012A4DCE51006365BC /* Models */,
 				B9C009CA29F7102600931FC7 /* PumbaApp.swift */,
 				B9C009CC29F7102600931FC7 /* ContentView.swift */,
 				B9518B3229F7FD5700F491D5 /* ListView.swift */,
 				B9518B3429F7FE9300F491D5 /* DetailView.swift */,
-				B9C009CE29F7102800931FC7 /* Assets.xcassets */,
+				B9427AAF2CA0BB51005B3767 /* WasteWaterCameraView.swift */,
+				B9427AA32C9D45BF005B3767 /* DataView.swift */,
+				B9427AA12C9D45A0005B3767 /* SettingsView.swift */,
 				B9C009D029F7102800931FC7 /* Preview Content */,
+				B91F74422A4450B900B93DDF /* ButtonView.swift */,
+				B91F74442A44643100B93DDF /* EnergyView.swift */,
+				B91F74462A44917100B93DDF /* ProgressView.swift */,
+				B941D0FF2A4C7658006365BC /* BluetoothService.swift */,
 			);
 			path = Pumba;
 			sourceTree = "<group>";
@@ -133,6 +234,29 @@
 			path = PumbaUITests;
 			sourceTree = "<group>";
 		};
+		D809B15CD017C59A3FFA3722 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5BAAA255BEEE6D0EFD671DD3 /* Pods_Pumba.framework */,
+				8555696763675B4C18A47CF2 /* Pods_Pumba_PumbaUITests.framework */,
+				6B50422FD933ACBFD874327C /* Pods_PumbaTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE826240B0FA0B13EB77308F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E7FDEC0908E1FD5D29DD9F86 /* Pods-Pumba.debug.xcconfig */,
+				4CC814EE7FB37EFA73175F94 /* Pods-Pumba.release.xcconfig */,
+				ADE536BEF221CEA77BA78209 /* Pods-Pumba-PumbaUITests.debug.xcconfig */,
+				E8EDD3CB678780D81B730612 /* Pods-Pumba-PumbaUITests.release.xcconfig */,
+				FF64F3B4B0401E47CBBFA6BC /* Pods-PumbaTests.debug.xcconfig */,
+				D551406D8B58BF00C39D889D /* Pods-PumbaTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,9 +264,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9C009EB29F7102800931FC7 /* Build configuration list for PBXNativeTarget "Pumba" */;
 			buildPhases = (
+				CFD64E24D43B77B21E625D6C /* [CP] Check Pods Manifest.lock */,
 				B9C009C329F7102600931FC7 /* Sources */,
 				B9C009C429F7102600931FC7 /* Frameworks */,
 				B9C009C529F7102600931FC7 /* Resources */,
+				37FC02A84A98B0F27820E067 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -157,6 +283,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9C009EE29F7102800931FC7 /* Build configuration list for PBXNativeTarget "PumbaTests" */;
 			buildPhases = (
+				6558156F8FED167A42182776 /* [CP] Check Pods Manifest.lock */,
 				B9C009D329F7102800931FC7 /* Sources */,
 				B9C009D429F7102800931FC7 /* Frameworks */,
 				B9C009D529F7102800931FC7 /* Resources */,
@@ -175,9 +302,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9C009F129F7102800931FC7 /* Build configuration list for PBXNativeTarget "PumbaUITests" */;
 			buildPhases = (
+				660CCA025C095AB38D1A8063 /* [CP] Check Pods Manifest.lock */,
 				B9C009DD29F7102800931FC7 /* Sources */,
 				B9C009DE29F7102800931FC7 /* Frameworks */,
 				B9C009DF29F7102800931FC7 /* Resources */,
+				F5E580F78397629C39FA5BC8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,14 +387,135 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		37FC02A84A98B0F27820E067 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pumba/Pods-Pumba-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pumba/Pods-Pumba-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pumba/Pods-Pumba-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6558156F8FED167A42182776 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PumbaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		660CCA025C095AB38D1A8063 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pumba-PumbaUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFD64E24D43B77B21E625D6C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pumba-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5E580F78397629C39FA5BC8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pumba-PumbaUITests/Pods-Pumba-PumbaUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pumba-PumbaUITests/Pods-Pumba-PumbaUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pumba-PumbaUITests/Pods-Pumba-PumbaUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B9C009C329F7102600931FC7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B941D1032A4DCE61006365BC /* Model.swift in Sources */,
+				B988EB032A4EEFFC00FB1885 /* ImuData.swift in Sources */,
+				B941D1002A4C7658006365BC /* BluetoothService.swift in Sources */,
+				B9427AAE2CA0BB3B005B3767 /* VLCPlayer.swift in Sources */,
+				B988EB0D2A4EF0B300FB1885 /* ServoSettings.swift in Sources */,
+				B988EB122A51A65C00FB1885 /* Color.swift in Sources */,
 				B9C009CD29F7102600931FC7 /* ContentView.swift in Sources */,
+				B9427AA22C9D45A8005B3767 /* SettingsView.swift in Sources */,
+				B9427AB02CA0BB5B005B3767 /* WasteWaterCameraView.swift in Sources */,
 				B9518B3529F7FE9300F491D5 /* DetailView.swift in Sources */,
+				B988EB0F2A4EF0CA00FB1885 /* FlowSettings.swift in Sources */,
+				B91F74452A44643100B93DDF /* EnergyView.swift in Sources */,
+				B91F74432A4450BA00B93DDF /* ButtonView.swift in Sources */,
+				B988EB092A4EF06500FB1885 /* VeDirectData.swift in Sources */,
+				B91F74472A44917100B93DDF /* ProgressView.swift in Sources */,
 				B9C009CB29F7102600931FC7 /* PumbaApp.swift in Sources */,
+				B988EB052A4EF03000FB1885 /* WaterFlowData.swift in Sources */,
+				B9427AA42C9D45C2005B3767 /* DataView.swift in Sources */,
+				B988EB0B2A4EF08C00FB1885 /* AdcSettings.swift in Sources */,
+				B988EB072A4EF04C00FB1885 /* AdcData.swift in Sources */,
+				B9427AA62C9D4E20005B3767 /* ServoSettingsCupboard.swift in Sources */,
 				B9518B3329F7FD5700F491D5 /* ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +669,7 @@
 		};
 		B9C009EC29F7102800931FC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A1B2C3D4E5F60718293A4B5 /* Pumba.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -428,8 +679,10 @@
 				DEVELOPMENT_TEAM = 7RKU9B56QW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pumba/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Always Bluetooth ";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Allow Bluetooth ";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "We need access to your local network to stream video from your camera.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -444,6 +697,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = de.mbreska.Pumba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Pumba/Pumba-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -451,6 +705,7 @@
 		};
 		B9C009ED29F7102800931FC7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A1B2C3D4E5F60718293A4B6 /* Pumba.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -460,8 +715,10 @@
 				DEVELOPMENT_TEAM = 7RKU9B56QW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pumba/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Always Bluetooth ";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Allow Bluetooth ";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "We need access to your local network to stream video from your camera.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -476,6 +733,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = de.mbreska.Pumba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Pumba/Pumba-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -483,6 +741,7 @@
 		};
 		B9C009EF29F7102800931FC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF64F3B4B0401E47CBBFA6BC /* Pods-PumbaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -503,6 +762,7 @@
 		};
 		B9C009F029F7102800931FC7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D551406D8B58BF00C39D889D /* Pods-PumbaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -523,6 +783,7 @@
 		};
 		B9C009F229F7102800931FC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADE536BEF221CEA77BA78209 /* Pods-Pumba-PumbaUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -541,6 +802,7 @@
 		};
 		B9C009F329F7102800931FC7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8EDD3CB678780D81B730612 /* Pods-Pumba-PumbaUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

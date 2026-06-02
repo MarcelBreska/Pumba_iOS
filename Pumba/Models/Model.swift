@@ -55,7 +55,10 @@ class Model: ObservableObject {
     @Published var servoSettingsCupboard = ServoSettingsCupboard()
     
     @Published var isConnected = false
-    
+    /// Whether the app should auto-connect to "Pumba_Zentrale". Turned off by a
+    /// deliberate disconnect so the search view shows instead of reconnecting.
+    @Published var autoConnect = true
+
     var isServoSet = false
     
     init(bluetoothService: BluetoothService) {
@@ -155,9 +158,22 @@ class Model: ObservableObject {
     }
     
     func connectPeripheral(peripheral: Peripheral) {
+        autoConnect = true
         bluetoothService.connectPeripheral(peripheral: peripheral)
     }
-    
+
+    /// Drop the connection and return to the search view (e.g. wrong device).
+    func disconnect() {
+        autoConnect = false
+        bluetoothService.disconnect()
+    }
+
+    /// Re-enable auto-connect and resume scanning.
+    func reconnect() {
+        autoConnect = true
+        bluetoothService.startAutoConnect()
+    }
+
     func updateInverter(isOn: Bool) {
         bluetoothService.updateInverter(isOn: isOn)
     }

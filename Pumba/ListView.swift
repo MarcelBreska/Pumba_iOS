@@ -28,28 +28,49 @@ struct ListView: View {
                 scanningHero
 
                 VStack(spacing: 8) {
-                    Text("Suche Pumba Zentrale")
+                    Text(model.autoConnect ? "Suche Pumba Zentrale" : "Nicht verbunden")
                         .font(.title2.bold())
-                    HStack(spacing: 8) {
-                        SwiftUI.ProgressView()
-                            .controlSize(.small)
-                        Text("Verbinde automatisch …")
+                    if model.autoConnect {
+                        HStack(spacing: 8) {
+                            SwiftUI.ProgressView()
+                                .controlSize(.small)
+                            Text("Verbinde automatisch …")
+                                .foregroundStyle(.secondary)
+                        }
+                        .font(.subheadline)
+                    } else {
+                        Text("Verbindung getrennt – wähle ein Gerät")
+                            .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
-                    .font(.subheadline)
                 }
 
                 Spacer()
 
-                Button {
-                    showDeviceList = true
-                } label: {
-                    Label("Gerät manuell wählen", systemImage: "list.bullet")
-                        .font(.subheadline.weight(.medium))
-                        .foregroundStyle(Color.accentColor)
-                        .padding(.vertical, 12)
-                        .padding(.horizontal, 22)
-                        .background(Color.accentColor.opacity(0.12), in: Capsule())
+                VStack(spacing: 12) {
+                    if !model.autoConnect {
+                        Button {
+                            model.reconnect()
+                        } label: {
+                            Label("Verbinden", systemImage: "antenna.radiowaves.left.and.right")
+                                .font(.headline)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 14)
+                                .background(Color.accentColor.gradient, in: RoundedRectangle(cornerRadius: 14))
+                                .foregroundStyle(.white)
+                        }
+                    }
+
+                    Button {
+                        showDeviceList = true
+                    } label: {
+                        Label("Gerät manuell wählen", systemImage: "list.bullet")
+                            .font(.subheadline.weight(.medium))
+                            .foregroundStyle(Color.accentColor)
+                            .padding(.vertical, 12)
+                            .padding(.horizontal, 22)
+                            .background(Color.accentColor.opacity(0.12), in: Capsule())
+                    }
                 }
             }
             .padding(24)

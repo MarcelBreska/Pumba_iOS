@@ -10,89 +10,63 @@ import CoreBluetooth
 
 struct SettingsView: View {
     @EnvironmentObject var model: Model
-    
+
     var body: some View {
         ScrollView {
-            VStack {
-                Text("Küche:").font(.title)
-                
-                VStack {
-                    Text("Open Pos max: \(Int(model.openPosMaxKitchen))").padding()
-                    Slider(value: $model.openPosMaxKitchen , in: 0.0...180.0, step: 1.0, onEditingChanged: { isEditing in
-                        if (!isEditing) {
-                            model.updateServoSettings()
-                        }
-                    })
+            VStack(spacing: 20) {
+                SectionCard("Küche", systemImage: "fork.knife") {
+                    ServoSlider(title: "Offen – Max", value: $model.openPosMaxKitchen, onCommit: model.updateServoSettings)
+                    ServoSlider(title: "Offen – Halten", value: $model.openPosHoldKitchen, onCommit: model.updateServoSettings)
+                    ServoSlider(title: "Zu – Max", value: $model.closedPosMaxKitchen, onCommit: model.updateServoSettings)
+                    ServoSlider(title: "Zu – Halten", value: $model.closedPosHoldKitchen, onCommit: model.updateServoSettings)
                 }
-                
-                VStack {
-                    Text("Open Pos hold: \(Int(model.openPosHoldKitchen))").padding()
-                    Slider(value: $model.openPosHoldKitchen , in: 0.0...180.0, step: 1.0, onEditingChanged: { isEditing in
-                        if (!isEditing) {
-                            model.updateServoSettings()
-                        }
-                    })
-                }
-                
-                VStack {
-                    Text("Closed Pos max: \(Int(model.closedPosMaxKitchen))").padding()
-                    Slider(value: $model.closedPosMaxKitchen , in: 0.0...180.0, step: 1.0, onEditingChanged: { isEditing in
-                        if (!isEditing) {
-                            model.updateServoSettings()
-                        }
-                    })
-                }
-                
-                VStack {
-                    Text("Closed Pos hold: \(Int(model.closedPosHoldKitchen))").padding()
-                    Slider(value: $model.closedPosHoldKitchen , in: 0.0...180.0, step: 1.0, onEditingChanged: { isEditing in
-                        if (!isEditing) {
-                            model.updateServoSettings()
-                        }
-                    })
-                }
-            }
 
-            Text("Hängeschrank:").font(.title)
-            VStack {
-                Text("Open Pos max: \(Int(model.openPosMaxCupboard))").padding()
-                Slider(value: $model.openPosMaxCupboard , in: 0.0...180.0, step: 1.0, onEditingChanged: { isEditing in
-                    if (!isEditing) {
-                        model.updateServoSettingsCupboard()
-                    }
-                })
+                SectionCard("Hängeschrank", systemImage: "cabinet.fill") {
+                    ServoSlider(title: "Offen – Max", value: $model.openPosMaxCupboard, onCommit: model.updateServoSettingsCupboard)
+                    ServoSlider(title: "Offen – Halten", value: $model.openPosHoldCupboard, onCommit: model.updateServoSettingsCupboard)
+                    ServoSlider(title: "Zu – Max", value: $model.closedPosMaxCupboard, onCommit: model.updateServoSettingsCupboard)
+                    ServoSlider(title: "Zu – Halten", value: $model.closedPosHoldCupboard, onCommit: model.updateServoSettingsCupboard)
+                }
+
+                Button(role: .destructive) {
+                    model.disconnect()
+                } label: {
+                    Label("Verbindung trennen", systemImage: "wifi.slash")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 14)
+                        .background(Color.red.opacity(0.12), in: RoundedRectangle(cornerRadius: 14))
+                        .foregroundStyle(.red)
+                }
             }
-            
-            VStack {
-                Text("Open Pos hold: \(Int(model.openPosHoldCupboard))").padding()
-                Slider(value: $model.openPosHoldCupboard , in: 0.0...180.0, step: 1.0, onEditingChanged: { isEditing in
-                    if (!isEditing) {
-                        model.updateServoSettingsCupboard()
-                    }
-                })
-            }
-            
-            VStack {
-                Text("Closed Pos max: \(Int(model.closedPosMaxCupboard))").padding()
-                Slider(value: $model.closedPosMaxCupboard , in: 0.0...180.0, step: 1.0, onEditingChanged: { isEditing in
-                    if (!isEditing) {
-                        model.updateServoSettingsCupboard()
-                    }
-                })
-            }
-            
-            VStack {
-                Text("Closed Pos hold: \(Int(model.closedPosHoldCupboard))").padding()
-                Slider(value: $model.closedPosHoldCupboard , in: 0.0...180.0, step: 1.0, onEditingChanged: { isEditing in
-                    if (!isEditing) {
-                        model.updateServoSettingsCupboard()
-                    }
-                })
-            }
+            .padding(14)
         }
     }
 }
 
+/// A labelled servo-position slider (0–180°) that commits on release.
+private struct ServoSlider: View {
+    let title: String
+    @Binding var value: Double
+    let onCommit: () -> Void
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            HStack {
+                Text(title)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                Spacer()
+                Text("\(Int(value))°")
+                    .font(.subheadline.weight(.semibold))
+                    .monospacedDigit()
+            }
+            Slider(value: $value, in: 0...180, step: 1, onEditingChanged: { editing in
+                if !editing { onCommit() }
+            })
+        }
+    }
+}
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {

@@ -79,7 +79,11 @@ class BluetoothService: NSObject {
     }
     
     private var characteristics: [CBCharacteristic]? = nil
-    
+
+    /// When false, the service won't auto-connect to "Pumba_Zentrale" (used
+    /// after a deliberate disconnect).
+    private var autoConnect = true
+
     let bluetoothDataPublisher = PassthroughSubject<BluetoothData, Never>()
     let peripheralPublisher = PassthroughSubject<[Peripheral], Never>()
     let isConnectedPublisher = PassthroughSubject<Bool, Never>()
@@ -97,12 +101,28 @@ class BluetoothService: NSObject {
     
     func connectPeripheral(peripheral: Peripheral) {
         guard let peripheral = peripherals.first(where: { $0.identifier.uuidString == peripheral.id } ) else { return }
+        autoConnect = true
         centralManager?.connect(peripheral, options: nil)
     }
-    
+
     func scanForDevices() {
         peripherals = []
         centralManager?.scanForPeripherals(withServices: nil)
+    }
+
+    /// Drop the current connection and stop auto-reconnecting (e.g. user picked
+    /// the wrong device and wants to choose again).
+    func disconnect() {
+        autoConnect = false
+        if let peripheral {
+            centralManager?.cancelPeripheralConnection(peripheral)
+        }
+    }
+
+    /// Re-enable auto-connect to "Pumba_Zentrale" and start scanning.
+    func startAutoConnect() {
+        autoConnect = true
+        scanForDevices()
     }
     
     private func updateRelay(isActive: Bool, id: String) {
@@ -230,7 +250,7 @@ extension BluetoothService: CBCentralManagerDelegate {
         
 //        print("peripheral \(peripheral.identifier.description), \(peripheral.name), \(peripheral.identifier)")
         
-        if peripheral.name == "Pumba_Zentrale" {
+        if autoConnect, peripheral.name == "Pumba_Zentrale" {
             connectPeripheral(peripheral: peripheral)
         }
 
@@ -246,8 +266,10 @@ extension BluetoothService: CBCentralManagerDelegate {
 
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         self.peripheral = nil
-        // Resume scanning so the device is rediscovered and auto-reconnected.
-        central.scanForPeripherals(withServices: nil)
+        // Auto-reconnect only if the user didn't deliberately disconnect.
+        if autoConnect {
+            central.scanForPeripherals(withServices: nil)
+        }
     }
 }
 
